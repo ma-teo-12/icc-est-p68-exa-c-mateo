@@ -1,5 +1,14 @@
 
+
+
+import controllers.TournamentController;
+import models.Athlete;
+import models.Club;
+import models.Tournament;
+
 public class AppTournament {
+
+
 
         public static Tournament[] getTournaments() {
                 // Copa Andina = 45
@@ -135,6 +144,18 @@ public class AppTournament {
         }
 
         public static void main(String[] args) {
+
+                Tournament[]tournaments = getTournaments();
+
+                TournamentController controller = new TournamentController();
+
+                for (Tournament tournament : tournaments){
+                        System.out.println("\n" + "=".repeat(50));
+                        System.out.println("torneo" + tournament.getName());
+                        System.out.println("=".repeat(50));
+                        controller.sortSelectionDesc(args);
+                }
+  
                 /**
                  * Aquí debe estar el código para ejecutar la aplicación, utilizando el
                  * TournamentController para mostrar los resultados de cada torneo.
